@@ -17,12 +17,16 @@ export type Theme = {
   colors: GenericThemeProps<typeof colors>;
   fonts: GenericThemeProps<typeof fonts>;
   ms: msFn;
+  msrem: (s: number) => string; // Same as ms but returns the value with "rem" appended
 };
+
+const msfn = generateModularScale(1.5, 40);
 
 const theme: Theme = {
   colors,
   fonts,
-  ms: generateModularScale(1.5, 40)
+  ms: s => msfn(s),
+  msrem: s => `${msfn(s)}rem`
 };
 
 export default theme;
