@@ -5,6 +5,7 @@ import theme from '../../styled/theme';
 import Posts from '../Posts';
 import R from '../R';
 import GlobalStyles from '../../styled/globals';
+import Masthead from '../Masthead';
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
       <ThemeProvider theme={theme}>
         <>
           <GlobalStyles />
+          <Masthead />
           <Router>
             <Switch>
               <Route exact path="/" component={Posts} />

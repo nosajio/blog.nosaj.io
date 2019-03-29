@@ -16,6 +16,10 @@ const GlobalStyles = createGlobalStyle`
     font-smoothing: antialiased;
   }
 
+  body {
+    margin: 0;
+  }
+
   a {
     color: ${theme.colors.black};
     text-decoration: underline;
@@ -25,7 +29,6 @@ const GlobalStyles = createGlobalStyle`
     color: ${theme.colors.pink};
   }
 
-  // Explicit margins on headings only
   h1, h2, h3, h4, h5 { margin: 0; }
 `;
 
