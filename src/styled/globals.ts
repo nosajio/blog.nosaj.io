@@ -2,6 +2,9 @@ import { createGlobalStyle } from 'styled-components';
 import theme from './theme';
 
 const GlobalStyles = createGlobalStyle`
+  // Initialise webfonts
+  ${theme.fonts.init()}
+
   *, *::before, *::after {
     box-sizing: border-box;
   }

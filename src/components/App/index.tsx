@@ -17,7 +17,7 @@ class App extends Component {
           <Router>
             <Switch>
               <Route exact path="/" component={Posts} />
-              <Route exact path="/r/:slug" component={R} />
+              <Route exact path="/:slug" component={R} />
             </Switch>
           </Router>
         </>

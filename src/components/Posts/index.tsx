@@ -26,7 +26,7 @@ const Posts: React.FunctionComponent<PostsProps> = props => {
         <>
           <PostsYear>{y}</PostsYear>
           {postsByYear[y].map(p => (
-            <PostItem to={`/r/${p.slug}`}>{p.title}</PostItem>
+            <PostItem to={`/${p.slug}`}>{p.title}</PostItem>
           ))}
         </>
       ))}

@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { RPage } from './styled';
 import { match } from 'react-router';
 import useBlogData from '../../hooks/useBlogData';
+import { RBody, RHTML, RPage, RHeadline } from './styled';
 
 interface ReadProps {
   match: match<{ slug: string }>;
@@ -14,7 +14,14 @@ const Read: React.FunctionComponent<ReadProps> = ({ match }) => {
   if (!post) {
     return null;
   }
-  return <RPage>{post.title}</RPage>;
+  return (
+    <RPage>
+      <RBody>
+        <RHeadline>{post.title}</RHeadline>
+        <RHTML dangerouslySetInnerHTML={{ __html: post.bodyHTML }} />
+      </RBody>
+    </RPage>
+  );
 };
 
 export default Read;
