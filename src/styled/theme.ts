@@ -10,7 +10,7 @@ const generateModularScale = (exp: number, totalSteps: number = 20): msFn => {
   for (let i = 0 - totalSteps / 2; i < totalSteps / 2; i++) {
     steps.push(Math.round(Math.pow(exp, i) * 10000) / 10000);
   }
-  return <msFn>(s = 1) => steps[s + totalSteps / 2];
+  return (s = 1) => steps[s + totalSteps / 2];
 };
 
 export type Theme = {

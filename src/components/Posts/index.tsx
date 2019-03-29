@@ -1,10 +1,19 @@
-import * as React from "react";
-import { PostsPg } from "./styled";
+import * as React from 'react';
+import { Link } from 'react-router-dom';
+import useBlogData from '../../hooks/useBlogData';
+import { PostsPg } from './styled';
 
 interface PostsProps {}
 
 const Posts: React.FunctionComponent<PostsProps> = props => {
-  return <PostsPg>WHATUP BLOGGGGGG!!</PostsPg>;
+  const posts = useBlogData();
+  return (
+    <PostsPg>
+      {posts.map(p => (
+        <Link to={`/r/${p.slug}`}>{p.title}</Link>
+      ))}
+    </PostsPg>
+  );
 };
 
 export default Posts;
