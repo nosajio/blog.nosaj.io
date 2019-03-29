@@ -24,6 +24,9 @@ const GlobalStyles = createGlobalStyle`
   a:hover {
     color: ${theme.colors.pink};
   }
+
+  // Explicit margins on headings only
+  h1, h2, h3, h4, h5 { margin: 0; }
 `;
 
 export default GlobalStyles;
