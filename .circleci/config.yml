@@ -12,7 +12,7 @@ jobs:
       - image: 'circleci/python:2.7'
     steps:
       - checkout
-      - run: npm run build
+      - run: npm install && npm run build
       - aws-s3/sync:
           from: build
           to: 's3://blog.nosaj.io'
