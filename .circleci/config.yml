@@ -2,13 +2,13 @@
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
-version: 2.1
+version: 2
 orbs:
   aws-s3: circleci/aws-s3@1.0.4
 jobs:
   build: 
     docker:
-      - image: 'circleci/python:2.7'
+      - image: 'circleci/node:11.12.0'
     steps:
       - checkout
       - run:
@@ -17,10 +17,37 @@ jobs:
             sudo apt-get update && sudo apt-get install nodejs
             npm -v
       - run: npm install && npm run build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - build
+  
+  deploy:
+    docker: 
+      - image: 'circleci/python:2.7'
+    steps:
+      - attach_workspace:
+          at: workspace
+
       - aws-s3/sync:
-          from: build
+          from: workspace/build
           to: 's3://blog.nosaj.io'
           arguments: |
             --acl public-read \
             --cache-control "max-age=10800" 
           overwrite: true
+          
+          
+workflows:
+  version: 2
+    build-deploy:
+      jobs: 
+        - build:
+            filters:
+              branches:
+                only: master
+        - deploy:
+            filters:
+              branches:
+                only: master
+            requires: build
