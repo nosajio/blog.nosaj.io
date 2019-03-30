@@ -8,6 +8,7 @@ orbs:
 jobs:
   build: 
     docker:
+      - image: 'circleci/node:11.12.0'
       - image: 'circleci/python:2.7'
     steps:
       - checkout
