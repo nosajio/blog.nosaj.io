@@ -1,0 +1,20 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2.1
+orbs:
+  aws-s3: circleci/aws-s3@1.0.4
+jobs:
+  build: 
+    - image: 'circleci/python:2.7'
+  steps:
+    - checkout
+    - run: npm run build
+    - aws-s3/sync:
+        from: build
+        to: 's3://blog.nosaj.io'
+        arguments: |
+          --acl public-read \
+          --cache-control "max-age=10800" 
+        overwrite: true
