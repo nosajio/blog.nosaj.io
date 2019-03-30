@@ -41,7 +41,7 @@ jobs:
 workflows:
   version: 2
   build-deploy:
-    jobs: 
+    jobs:
       - build:
           filters:
             branches:
@@ -50,4 +50,5 @@ workflows:
           filters:
             branches:
               only: master
-          requires: build
+          requires:
+            - build
