@@ -64,4 +64,31 @@ export const RHTML = styled.div`
     padding: 0;
     grid-column: 2 / 8;
   }
+  blockquote p {
+    margin-bottom: ${({ theme }) => theme.msrem(1)};
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: ${({ theme }) => theme.msrem(3)} 0;
+  }
+
+  code {
+    font-family: ${({ theme }) => theme.fonts.mono.f};
+    background: ${({ theme }) => theme.colors.black};
+    color: white;
+    padding: 2px 0.5em;
+    border-radius: 3px;
+  }
+
+  ul {
+    grid-column: 1 / 9;
+  }
+
+  ul li {
+    font-size: ${({ theme }) => theme.msrem(1)};
+    margin: ${({ theme }) => theme.msrem(-1)};
+  }
 `;
