@@ -29,7 +29,6 @@ jobs:
           arguments: |
             --acl public-read \
             --cache-control "max-age=10800" 
-          overwrite: true
           
           
 workflows:
