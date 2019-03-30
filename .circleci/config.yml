@@ -8,10 +8,14 @@ orbs:
 jobs:
   build: 
     docker:
-      - image: 'circleci/node:11.12.0'
       - image: 'circleci/python:2.7'
     steps:
       - checkout
+      - run:
+          name: Install node...
+          command: |
+            sudo apt-get update && sudo apt-get install nodejs
+            node -v
       - run: npm install && npm run build
       - aws-s3/sync:
           from: build
