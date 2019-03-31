@@ -2,16 +2,24 @@ import styled from '../../styled';
 
 export const RPage = styled.main`
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: 1rem 1fr 1rem;
   grid-auto-rows: auto;
-  grid-column-gap: 2.77777%;
+  grid-column-gap: ${({ theme }) => theme.msrem(-1)};
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
+
+  ${({ theme }) => theme.mq.l`
+    grid-column-gap: 2.77777%;
+    grid-template-columns: repeat(12, 1fr);
+  `}
 `;
 
 export const RBody = styled.article`
-  grid-column: 3 / 11;
+  grid-column: 2 / 3;
+  ${({ theme }) => theme.mq.l` 
+    grid-column: 3 / 11;
+  `}
 `;
 
 export const RHeadline = styled.h1`
@@ -22,18 +30,28 @@ export const RHeadline = styled.h1`
 `;
 
 export const RHTML = styled.div`
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  /* transform the margin to align with the parent's */
-  grid-column-gap: 4.226086%;
+  display: flex;
+  flex-flow: column nowrap;
+
+  ${({ theme }) => theme.mq.l`
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    /* transform the margin to align with the parent's */
+    grid-column-gap: 4.226086%;
+  `}
 
   /* Make sure all child elements default to full width */
   > * {
-    grid-column: 1 / 9;
+    ${({ theme }) => theme.mq.l` 
+      grid-column: 1 / 9;
+    `}
   }
 
   /* Handle typography etc here */
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     margin-top: ${({ theme }) => theme.ms(1)}em;
     margin-bottom: ${({ theme }) => theme.msrem(1)};
   }
@@ -41,7 +59,7 @@ export const RHTML = styled.div`
     font-size: ${({ theme }) => theme.msrem(3)};
   }
   h2 {
-    font-size: ${({ theme }) => theme.msrem(2)}
+    font-size: ${({ theme }) => theme.msrem(2)};
   }
   h3 {
     font-size: ${({ theme }) => theme.msrem(1)};
@@ -62,7 +80,10 @@ export const RHTML = styled.div`
     font-size: ${({ theme }) => theme.msrem(1)};
     margin: ${({ theme }) => theme.msrem(3)} 0;
     padding: 0;
-    grid-column: 2 / 8;
+    
+    ${({ theme }) => theme.mq.l`
+      grid-column: 2 / 8;
+    `}
   }
   blockquote p {
     margin-bottom: ${({ theme }) => theme.msrem(1)};
