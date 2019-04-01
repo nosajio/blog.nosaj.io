@@ -8,6 +8,7 @@ export const RPage = styled.main`
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
+  padding-bottom: ${({ theme }) => theme.msrem(4)}
 
   ${({ theme }) => theme.mq.l`
     grid-column-gap: 2.77777%;
