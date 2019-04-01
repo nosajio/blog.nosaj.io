@@ -80,7 +80,7 @@ export const RHTML = styled.div`
     font-size: ${({ theme }) => theme.msrem(1)};
     margin: ${({ theme }) => theme.msrem(3)} 0;
     padding: 0;
-    
+
     ${({ theme }) => theme.mq.l`
       grid-column: 2 / 8;
     `}
@@ -89,11 +89,19 @@ export const RHTML = styled.div`
     margin-bottom: ${({ theme }) => theme.msrem(1)};
   }
 
+  // Images
   img {
     display: block;
     width: 100%;
     height: auto;
+  }
+  > img {
     margin: ${({ theme }) => theme.msrem(3)} 0;
+  }
+
+  .img-caption {
+    font-size: 1rem;
+    margin-top: ${({ theme }) => theme.msrem(1)};
   }
 
   code {
@@ -111,5 +119,12 @@ export const RHTML = styled.div`
   ul li {
     font-size: ${({ theme }) => theme.msrem(1)};
     margin: ${({ theme }) => theme.msrem(-1)};
+  }
+
+  hr {
+    display: block;
+    width: 30%;
+    border: 1px solid ${({ theme }) => theme.colors.black};
+    margin: ${({ theme }) => theme.msrem(4)} auto;
   }
 `;
