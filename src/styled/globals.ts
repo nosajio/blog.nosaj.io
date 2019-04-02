@@ -1,9 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { Theme, ThemeModes } from './theme';
-import {
-  colorTransitionWithDelay,
-  oneWayDelayColorTransition
-} from './transitions';
+import { oneWayDelayColorTransition } from './transitions';
 
 const GlobalStyles = createGlobalStyle`
   // Initialise webfonts
