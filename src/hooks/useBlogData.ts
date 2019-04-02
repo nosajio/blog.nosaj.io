@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { fetchBlogPosts, BlogPostModel } from '../services/blogData';
+import { useEffect, useState } from 'react';
+import { BlogPostModel, fetchBlogPosts } from '../services/blogData';
 
 const useBlogData = (): BlogPostModel[] => {
   const [posts, setPosts] = useState<BlogPostModel[]>([]);

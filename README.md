@@ -1,4 +1,3 @@
-# blog.nosaj.io (wip)
+# blog.nosaj.io
 
-Will be live on 29 March 2019 🙌
 

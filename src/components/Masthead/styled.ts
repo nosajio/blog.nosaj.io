@@ -33,3 +33,13 @@ export const MastheadTitle = styled.h1`
       repeat-x bottom / 1px 2px;
   }
 `;
+
+export const MastheadLightsOutIcon = styled.div`
+  position: fixed;
+  top: ${({ theme }) => theme.msrem(3)};
+  right: ${({ theme }) => theme.msrem(1)};
+  width: 18px;
+  height: 18px;
+  background: no-repeat url('/lightsout-icon.svg') center / 100% auto;
+  cursor: pointer;
+`;

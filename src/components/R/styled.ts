@@ -1,4 +1,6 @@
 import styled from '../../styled';
+import { ThemeModes } from '../../styled/theme';
+import { oneWayDelayColorTransition } from '../../styled/transitions';
 
 export const RPage = styled.main`
   display: grid;
@@ -8,12 +10,11 @@ export const RPage = styled.main`
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding-bottom: ${({ theme }) => theme.msrem(4)}
-
+  padding-bottom: ${({ theme }) => theme.msrem(4)};
   ${({ theme }) => theme.mq.l`
     grid-column-gap: 2.77777%;
     grid-template-columns: repeat(12, 1fr);
-  `}
+  `};
 `;
 
 export const RBody = styled.article`
@@ -28,6 +29,8 @@ export const RHeadline = styled.h1`
   font-weight: ${({ theme }) => theme.fonts.tgc.w.bold};
   font-size: ${({ theme }) => theme.msrem(4)};
   margin-bottom: ${({ theme }) => theme.msrem(3)};
+  color: ${({ theme }) => theme.colors.black};
+  ${({ theme }) => oneWayDelayColorTransition(theme.mode === ThemeModes.Dark)};
 `;
 
 export const RHTML = styled.div`
@@ -95,6 +98,10 @@ export const RHTML = styled.div`
     display: block;
     width: 100%;
     height: auto;
+    background: ${({ theme }) =>
+      theme.mode === ThemeModes.Dark ? theme.colors.black : 'transparent'};
+    ${({ theme }) =>
+      oneWayDelayColorTransition(theme.mode === ThemeModes.Dark)};
   }
   > img {
     margin: ${({ theme }) => theme.msrem(3)} 0;

@@ -1,5 +1,7 @@
-import styled from '../../styled';
 import { Link } from 'react-router-dom';
+import styled from '../../styled';
+import { ThemeModes } from '../../styled/theme';
+import { oneWayDelayColorTransition } from '../../styled/transitions';
 
 export const PostsPg = styled.main`
   display: grid;
@@ -41,6 +43,7 @@ export const PostsYear = styled.h1`
   color: ${({ theme }) => theme.colors.greyLight};
   grid-column: 2 / 3;
   margin: ${({ theme }) => theme.msrem(3)} 0 ${({ theme }) => theme.msrem(2)};
+  ${({ theme }) => oneWayDelayColorTransition(theme.mode === ThemeModes.Dark)};
 
   ${({ theme }) => theme.mq.l`
     grid-column: 1 / 5;

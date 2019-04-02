@@ -1,5 +1,6 @@
 
 const colors = {
+  white: '#FFF',
   black: '#0D0C0F',
   pink: '#E43DF1',
   greyLight: '#E3E3E4',
